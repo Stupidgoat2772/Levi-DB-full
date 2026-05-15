@@ -71,7 +71,7 @@ for h in hits:
 
 ### Study with a CLI Agent (recommended)
 
-Levi works best driven by a CLI agent (Claude Code, Codex, etc). The agent can run multiple queries, extract Strong's numbers, build co-occurrence maps, and write synthesis documents grounded in the actual lexical data.
+Levi works best driven by a CLI agent. The agent can run multiple queries, extract Strong's numbers, build co-occurrence maps, and write synthesis documents grounded in the actual lexical data.
 
 The database is SQLite — agents can query it directly:
 
@@ -80,6 +80,16 @@ import sqlite3
 conn = sqlite3.connect("data/chromadb/levi.db")
 rows = conn.execute("SELECT id, text FROM verses WHERE text LIKE '%[H7307]%'").fetchall()
 ```
+
+### Recommended Drivers
+
+| Driver | Cost | Notes |
+|:-------|:-----|:------|
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | Free | Budget option. Free to install, comes with decent credits. Gets the job done for reasoning and study. Best starting point. |
+| [Claude Code](https://claude.ai/claude-code) | Paid | Most capable for deep theological synthesis. Best at multi-pass research and long-form study documents. |
+| [Codex](https://github.com/openai/codex) | Paid | Strong at structured queries and code-level DB interaction. |
+
+Any CLI agent that can run Python and shell commands will work. Gemini CLI is the recommended entry point — zero cost to start.
 
 ---
 
